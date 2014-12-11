@@ -17,7 +17,7 @@ Executor can help you to keep your code clean.
 
 #Installation
 
-Make sure you have a C++ compiler and cmake is installed. You can build the project with following command:
+Make sure you have a C++ compiler and cmake is installed.
 
 ##Linux / OSX
 
@@ -39,7 +39,7 @@ Make sure you are at the root of the Executor folder.
 
 You can assign **void** functions, static **void** member functions and non-static **void** member functions to an executor.
 
-Non-static member functions are a little bit complicater because you also need to pass a reference to an existing object (this is something C++ does in the background for you, when call member functions on objects).
+Non-static member functions are a little bit complicater because you also need a reference to an existing object (this is something C++ does in the background for you, when calling member functions on an object).
 
 	// Executor can execute member functions of an object.
 	Executor<Foo> executeMember;

@@ -13,7 +13,7 @@ Executor is a class that executes a function at specific times/intervals by usin
 		i++;
 	}
 
-which is very nast if you would do it often. If you are in this situation a lot, Executor can help you to keep your code clean.
+Executor can help you to keep your code clean.
 
 #Usage
 

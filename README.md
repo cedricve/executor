@@ -21,7 +21,8 @@ Make sure you have a C++ compiler and cmake is installed. You can build the proj
 
 ##Linux / OSX
 
-	// make sure you are at the root of the Executor folder
+Make sure you are at the root of the Executor folder.
+
 	mkdir build && cd build && cmake .. && make
 
 ##Windows

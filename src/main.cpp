@@ -17,11 +17,12 @@ using namespace kerberos;
 // Helper function
 void static sleep(int sec)
 {
-	#ifdef _WIN32
+	#if defined(_WIN32)
 		_sleep(sec*1000);
-	#endif
-	#ifdef LINUX
+	#elif defined(BSD) || defined(__linux__)
 		usleep(sec*1000000);
+	#elif defined(__APPLE_CC__)
+		sleep(sec*1000);
 	#endif
 }
 

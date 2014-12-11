@@ -15,6 +15,25 @@ Executor is a class that executes a function at specific times/intervals by usin
 
 Executor can help you to keep your code clean.
 
+#Installation
+
+Make sure you have a C++ compiler and cmake is installed. You can build the project with following command:
+
+##Linux / OSX
+
+	// make sure you are at the root of the Executor folder
+	mkdir build && cd build && cmake .. && make
+
+##Windows
+
+* install the (cmake)[http://www.cmake.org/download/] executable
+* open the cmake GUI and select the source and build directory
+* press the configure button
+* press the generate button
+* open the .sln file with Visual Studio (you can find it in the build directory)
+* build the project
+* execute the binary
+
 #Usage
 
 You can assign **void** functions, static **void** member functions and non-static **void** member functions to an executor.

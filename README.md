@@ -1,6 +1,6 @@
 #Executor
 
-Executor is a class that executes a function at specific times/intervals by using human language and a function pointer. This is helpfull because sometimes you don't want to execute a function every time, and only once in a period. In most cases you will end with following solution:
+Executor is a class that executes a function at specific times/intervals by using human language and a function pointer. This is helpful because sometimes you don't want to execute a function every time, and only once in a period. In most cases you will end with following solution:
 
 	int i = 0;
 	while(true)

@@ -17,34 +17,31 @@ which is very nast if you would do it often. If you are in this situation a lot,
 
 #Usage
 
-You can assign functions and static member functions to a executor.
+You can assign **void** functions, static **void** member functions and non-static **void** member functions to an executor.
 
-	Executor execute;
+Non-static member functions are a little bit complicater because you also need to pass a reference to an existing object (this is something C++ does in the background for you, when call member functions on objects).
 
-	void doSomething(){}
-	execute.setAction(&doSomething);
-	execute.setInterval("twice in 4 function calls");
+	// Executor can execute member functions of an object.
+	Executor<Foo> executeMember;
+	executeMember.setAction(new Foo(), &Foo::execute);
+	executeMember.setInterval("once in 10 executions");
 
-	// call the funcor methode
-	execute(); // do nothing
-	execute(); // execute function..
-	execute(); // do nothing
-	execute(); // execute function ..
+	// Executor can execute static member functions of an object.
+	Executor<> executeStaticMember;
+	executeStaticMember.setAction(&Foo::staticExecute);
+	executeStaticMember.setInterval("thrice in 10 executions");
 
-But you can assign non-static member functions to the executor; this is a little bit complicater because you also need to pass a reference to an existing object (this is something C++ does in the background for you, when call member functions on objects).
+	// Executor can execute static functions.
+	Executor<> executeStatic;
+	executeStatic.setAction(&execute);
+	executeStatic.setInterval("2 times in 10 executions");
 
-	class Foo { void doSomething(){} }
-	Foo foo;
-
-	Executor<Foo> execute;
-	execute.setAction(&foo, &Foo::doSomething);
-	execute.setInterval("twice in 4 times");
-
-	// call the funcor methode
-	execute(); // do nothing
-	execute(); // execute function..
-	execute(); // do nothing
-	execute(); // execute function ..
+	while (true)
+	{
+		executeMember();
+		executeStatic();
+		executeStaticMember();
+	}
 
 You can specify intervals by using human language:
 

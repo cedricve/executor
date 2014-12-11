@@ -28,37 +28,48 @@ void static sleep(int sec)
 // Class with a member function
 struct Foo
 {
-	bool execute()
+	void execute()
 	{
-		std::cout << "I (Foo) will execute this function." << std::endl;
+		std::cout << "I (Foo) will execute this member function." << std::endl;
 		sleep(1);
-		return true;
+	}
+
+	static void staticExecute()
+	{
+		std::cout << "I (Foo) will execute this - static member - function." << std::endl;
+		sleep(1);
 	}
 };
 
 // Static function
 static void execute()
 {
-	std::cout << "I (static function) will execute this function" << std::endl;
+	std::cout << "I (static function) will execute this static function" << std::endl;
 	sleep(1);
 }
 
 int main(int argc, char** argv)
 {
 	// Executor can execute member functions of an object.
-	Executor<Foo> executeFoo;
-	executeFoo.setAction(new Foo(), &Foo::execute);
-	executeFoo.setInterval("once in 10 executions");
+	Executor<Foo> executeMember;
+	executeMember.setAction(new Foo(), &Foo::execute);
+	executeMember.setInterval("once in 10 executions");
+
+	// Executor can execute static member functions of an object.
+	Executor<> executeStaticMember;
+	executeStaticMember.setAction(&Foo::staticExecute);
+	executeStaticMember.setInterval("thrice in 10 executions");
 
 	// Executor can execute static functions.
-	/*Executor executeStatic;
+	Executor<> executeStatic;
 	executeStatic.setAction(&execute);
-	executeStatic.setInterval("2 times in 10 executions");*/
+	executeStatic.setInterval("2 times in 10 executions");
 
 	while (true)
 	{
-		executeFoo();
-		//executeStatic();
+		executeMember();
+		executeStatic();
+		executeStaticMember();
 	}
 
     return 0;

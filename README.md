@@ -27,7 +27,7 @@ Make sure you are at the root of the Executor folder.
 
 ##Windows
 
-* install the (cmake)[http://www.cmake.org/download/] executable
+* install the [cmake](http://www.cmake.org/download/) executable
 * open the cmake GUI and select the source and build directory
 * press the configure button
 * press the generate button
